@@ -43,7 +43,7 @@ pipeline{
                 '''
             }
         }
-        stage('push image'){
+        stage('push image on github'){
             steps{
                 withCredentials([usernamePassword(credentialsId: 'Docker', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     sh'''
