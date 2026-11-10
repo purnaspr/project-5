@@ -53,5 +53,16 @@ pipeline{
 }
             }
         }
+        post{
+            success{
+                echo 'buld succeeded!'
+            }
+            failure{
+                echo 'build failed!'
+            }
+            always{
+                echo 'clean up tasks'
+            }
+        }
     }
 }
