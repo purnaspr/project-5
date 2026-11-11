@@ -1,0 +1,42 @@
+replicaCount: 3
+
+image:
+  repository: purnaspr/netflix
+  tag: "1.0"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 5000
+
+ingress:
+  enabled: true
+  className: "nginx"
+  host: "netflix.local"
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 180Mi
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 5000
+  initialDelaySeconds: 10
+  periodSeconds: 20
+  timeoutSeconds: 8
+  failureThreshold: 3
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: 5000
+  initialDelaySeconds: 9
+  periodSeconds: 6
+  timeoutSeconds: 5
+  failureThreshold: 3

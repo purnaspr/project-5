@@ -1,0 +1,13 @@
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo update
+
+kind-prom-values.yaml (File Create)
+
+helm install local-prom prometheus-community/kube-prometheus-stack -n monitoring --create-namespace -f kind-prom-values.yaml
+
+kubectl get pods -n monitoring
+
+grafana:-
+
+node_cpu_seconds_total
+

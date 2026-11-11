@@ -1,0 +1,5 @@
+apiVersion: v2
+name: netflix
+description: helm chart from netflix
+version: 0.1.0
+appVersion: "1.0"

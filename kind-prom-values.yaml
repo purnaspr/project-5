@@ -1,0 +1,11 @@
+grafana:
+  enabled: false
+
+alertmanager:
+  enabled: false
+
+prometheus:
+  prometheusSpec:
+    retention: 2h  #save for cpu, memory retention
+    remoteWrite:
+      - url: "http://13.218.152.224:9090/api/v1/write"
